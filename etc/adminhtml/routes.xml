@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * UnCancelOrder
+ *
+ * @package Genmato_UnCancelOrder
+ * @author  Vladimir Kerkhoff <support@genmato.com>
+ * @created 2015-11-25
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="sales">
+            <module name="Genmato_UnCancelOrder" before="Magento_Sales" />
+        </route>
+    </router>
+</config>

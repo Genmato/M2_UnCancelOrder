@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * UnCancelOrder
+ *
+ * @package Genmato_UnCancelOrder
+ * @author  Vladimir Kerkhoff <support@genmato.com>
+ * @created 2015-11-25
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Sales::sales" title="Sales" sortOrder="20">
+                    <resource id="Magento_Sales::sales_operation" title="Operations" sortOrder="10">
+                        <resource id="Magento_Sales::sales_order"  title="Orders" sortOrder="10">
+                            <resource id="Magento_Sales::actions" title="Actions" sortOrder="10">
+                                <resource id="Genmato_UnCancelOrder::uncancel" title="Un-Cancel" sortOrder="10" />
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

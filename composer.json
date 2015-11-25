@@ -1,0 +1,22 @@
+{
+  "name": "genmato/uncancelorder",
+  "description": "Genmato Magento2 Extension Un-Cancel Order",
+  "keywords": ["magento2", "genmato", "un-cancel", "order"],
+  "type": "magento2-module",
+  "license": "OSL-3.0",
+  "authors": [
+    {
+      "name":"Genmato BV",
+      "email": "support@genmato.com"
+    }
+  ],
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Genmato\\UnCancelOrder\\": ""
+    }
+  }
+}

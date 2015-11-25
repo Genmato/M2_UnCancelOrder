@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * UnCancelOrder
+ *
+ * @package Genmato_UnCancelOrder
+ * @author  Vladimir Kerkhoff <support@genmato.com>
+ * @created 2015-11-25
+ * @copyright Copyright (c) 2015 Genmato BV, https://genmato.com.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_uncancel_inventory">
+        <observer name="inventory" instance="Genmato\UnCancelOrder\Observer\SubtractInventoryObserver"/>
+    </event>
+</config>
