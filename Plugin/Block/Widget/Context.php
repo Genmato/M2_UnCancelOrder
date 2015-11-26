@@ -58,12 +58,12 @@ class Context
         if($request->getFullActionName() == 'sales_order_view'){
             $order = $this->getOrder();
             if ($order && $order->getState()=='canceled') {
+                $message = __('Are you sure you want to un-cancel this order?');
                 $buttonList->add(
-                    'uncancel_button',
+                    'order_uncancel',
                     [
                         'label' => __('Un-Cancel'),
-                        'onclick' => 'setLocation(\'' . $this->getCustomUrl() . '\')',
-                        'class' => 'save'
+                        'onclick' => "confirmSetLocation('{$message}', '".$this->getUnCancelUrl()."')",
                     ]
                 );
             }
@@ -77,7 +77,7 @@ class Context
         return $this->_coreRegistry->registry('sales_order');
     }
 
-    public function getCustomUrl()
+    public function getUnCancelUrl()
     {
         return $this->_urlBuilder->getUrl('*/*/uncancel', ['order_id'=>$this->getOrder()->getId()]);
     }

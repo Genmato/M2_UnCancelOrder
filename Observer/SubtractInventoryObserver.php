@@ -64,19 +64,17 @@ class SubtractInventoryObserver implements ObserverInterface
         }
 
         /**
-         * Remember items
+         * Reindex items
          */
         $itemsForReindex = $this->stockManagement->registerProductsSale(
             $productQty,
             $order->getStore()->getWebsiteId()
         );
-        $this->logger->debug(var_export($productQty, true));
         $productIds = [];
         foreach ($itemsForReindex as $item) {
             $item->save();
             $productIds[] = $item->getProductId();
         }
-        $this->logger->debug(var_export($productIds, true));
         if (!empty($productIds)) {
             $this->stockIndexerProcessor->reindexList($productIds);
         }

@@ -18,8 +18,14 @@ class Order extends SalesOrder
         if ($this->isCanceled()) {
             $state = self::STATE_PROCESSING;
             $productStockQty = [];
-            foreach ($this->getAllItems() as $item) {
+            foreach ($this->getAllVisibleItems() as $item) {
                 $productStockQty[$item->getProductId()] = $item->getQtyCanceled();
+                foreach ($item->getChildrenItems() as $child) {
+                    $productStockQty[$child->getProductId()] = $item->getQtyCanceled();
+                    $child->setQtyCanceled(0);
+                    $child->setTaxCanceled(0);
+                    $child->setDiscountTaxCompensationCanceled(0);
+                }
                 $item->setQtyCanceled(0);
                 $item->setTaxCanceled(0);
                 $item->setDiscountTaxCompensationCanceled(0);
